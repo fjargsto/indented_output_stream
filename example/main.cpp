@@ -58,7 +58,6 @@ std::ostream& operator<<(std::ostream& out, const Sphere& sphere)
 }
 
 
-
 int main()
 {
   using namespace std;
