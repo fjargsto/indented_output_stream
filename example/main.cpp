@@ -76,5 +76,6 @@ int main()
 
   Sphere sphere = {{5.0f, 10.0f, 15.0f}, 1.0f};
   out << "sphere = " << sphere << std::endl;
+
   return 0;
 }
