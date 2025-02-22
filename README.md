@@ -13,4 +13,4 @@ The implementation is based on the Boost.Iostreams library and consists of a fil
 
 The filter class and the manipulator functions are header-file only, i.e. compilation is not required. To build the project's example and unit-tests, CMake is required. The `CMakeLists.txt` defines two path variables, one for the path to the boost include directory and one for the path to the boost link/library directory.
 
-The example shows how the classes of a typical 3d scene graph could be written do and output stream for debugging purposes. 
+The example shows how the classes of a typical 3d scene graph could be written to an output stream for debugging purposes. 
