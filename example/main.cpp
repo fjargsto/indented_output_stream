@@ -27,11 +27,37 @@ struct AABB
 
 std::ostream& operator<<(std::ostream& out, const AABB& bbox)
 {
-  out << "min = " << bbox.min << '\n';
-  out << "max = " << bbox.max;
+  out << '{' << io::incn
+      << "min = " << bbox.min << '\n'
+      << "max = " << bbox.max << io::decn
+      << '}';
 
   return out;
 }
+
+struct Sphere
+{
+  Vector center;
+  float  radius;
+  AABB aabb() const
+  {
+    return {{center.x - radius, center.y - radius, center.z - radius},
+	    {center.x + radius, center.y + radius, center.z + radius}};
+  }
+};
+
+std::ostream& operator<<(std::ostream& out, const Sphere& sphere)
+{
+  out << '{' << io::incn
+      << "center = " << sphere.center << '\n'
+      << "radius = " << sphere.radius << '\n'
+      << "aabb = " << sphere.aabb() << io::decn
+      << '}';
+
+  return out;
+}
+
+
 
 int main()
 {
@@ -46,9 +72,9 @@ int main()
   out << "v = " << v << "\n\n";
 
   AABB bbox = {v, {1.0f, 2.0f, 3.0f}};
-  out << "bbox = {" << io::inc << '\n'
-      << bbox << io::dec << '\n'
-      << '}' << endl;
+  out << "bbox = " << bbox << "\n\n";
 
+  Sphere sphere = {{5.0f, 10.0f, 15.0f}, 1.0f};
+  out << "sphere = " << sphere << std::endl;
   return 0;
 }
